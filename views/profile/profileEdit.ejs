@@ -11,10 +11,10 @@
         <label for='image' role="button" class='d-flex align-items-center'>
           <div class='profile-img-edit'>
             <MdCameraAlt class='camera-icon' />
-            <img src="" alt="profile" />
+            <img src="<%= user.image || "https://www.gravatar.com/avatar/" %>" alt="profile" />
           </div>
           CHANGE PHOTO
-          <input type="file" id="image" name="image" class='invisible w-25' ref={imageRef} required />
+          <input type="file" id="image" name="image" class='invisible w-25' required />
         </label>
       </div>
 
