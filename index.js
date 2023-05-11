@@ -7,6 +7,7 @@ const session = require("express-session")
 const jwt = require("jsonwebtoken")
 
 const userRoutes = require("./routes/user")
+const profileRoutes = require("./routes/profile")
 
 const port = process.env.PORT || 3000
 const mongoUrl = process.env.MONGO_URL
@@ -73,9 +74,8 @@ app.get("/", (req, res) => {
   res.render("index", { user })
 })
 
-// add user routes allow signin, login and logout
 app.use("/user", userRoutes)
-
+app.use("/profile", profileRoutes)
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)

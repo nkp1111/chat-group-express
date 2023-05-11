@@ -1,0 +1,9 @@
+.profile .profile-info,
+.profile.edit .profile-edit {
+  display: block;
+}
+
+.profile .profile-edit,
+.profile.edit .profile-info {
+  display: none;
+}

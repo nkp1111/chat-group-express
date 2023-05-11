@@ -27,7 +27,7 @@ router.post("/signin", async (req, res) => {
 
       req.session.authorization = { token }
       const newUser = await User.create({ username, password })
-      res.redirect("/")
+      res.redirect("/profile")
       return
     }
   }
@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
         { expiresIn: 60 * 60 }
       )
       req.session.authorization = { token }
-      res.redirect("/")
+      res.redirect("/profile")
       return
     }
   }
