@@ -12,51 +12,13 @@
 
   <!-- if user is not logged in show sign up or login form  -->
   <% if (!user) { %>
-   <form action="/user/signin" method="POST">
-    <fieldset>
-      <legend>Sign Up</legend>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      <br>
-      <label for="password">Password:</label>
-      <input type="text" id="password" name="password" required>
-      <br>
-      <button>Submit</button>
-    </fieldset>
-   </form>
-
-   <!-- change form from sign up to login and from login to signup  -->
-    <p class="control-text"><span>Already registered?</span>
-      <a href="#">login</a>
-    </p>
+   <%- include('partials/form') %>
 
   <% }  else  { %>
     <!-- if user if login logout link is shown  -->
     <a href="/user/logout">Logout</a>
   <% } %>
 
-    <script>
-      // change login to sign In form and vice versa
-      const form = document.querySelector("form")
-      const formHeading =  document.querySelector("legend")
-      const control = document.querySelector(".control-text")
-      if (control) {
-        const link = control.querySelector("a")
-        const text = control.querySelector("span")
-        link.addEventListener("click", (e) => {
-          if (e.currentTarget.innerText === "register") {
-            e.currentTarget.innerText = "login"
-            text.innerText = "Already registered?"
-            form.setAttribute("action", "/user/signin")
-            formHeading.innerText = "Sign Up"
-          } else {
-            e.currentTarget.innerText = "register"
-            text.innerText = "Are you new user?"
-            form.setAttribute("action", "/user/login")
-            formHeading.innerText = "Log In"
-          }
-        })
-      }
-    </script>
+    
 </body>
 </html>

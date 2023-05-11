@@ -36,6 +36,7 @@ store.on("error", function (e) {
 // basic configuration
 app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
+app.use(express.static(__dirname + "/static"))
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
   name: "session",
