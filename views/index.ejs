@@ -12,7 +12,7 @@
 
   <!-- if user is not logged in show sign up or login form  -->
   <% if (!user) { %>
-   <form action="/signin" method="POST">
+   <form action="/user/signin" method="POST">
     <fieldset>
       <legend>Sign Up</legend>
       <label for="username">Username:</label>
@@ -32,7 +32,7 @@
 
   <% }  else  { %>
     <!-- if user if login logout link is shown  -->
-    <a href="/logout">Logout</a>
+    <a href="/user/logout">Logout</a>
   <% } %>
 
     <script>
@@ -47,12 +47,12 @@
           if (e.currentTarget.innerText === "register") {
             e.currentTarget.innerText = "login"
             text.innerText = "Already registered?"
-            form.setAttribute("action", "/signin")
+            form.setAttribute("action", "/user/signin")
             formHeading.innerText = "Sign Up"
           } else {
             e.currentTarget.innerText = "register"
             text.innerText = "Are you new user?"
-            form.setAttribute("action", "/login")
+            form.setAttribute("action", "/user/login")
             formHeading.innerText = "Log In"
           }
         })

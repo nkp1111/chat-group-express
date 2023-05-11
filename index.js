@@ -6,7 +6,7 @@ const MongoDBStore = require("connect-mongo")
 const session = require("express-session")
 const jwt = require("jsonwebtoken")
 
-const { User } = require("./database/user")
+const userRoutes = require("./routes/user")
 
 const port = process.env.PORT || 3000
 const mongoUrl = process.env.MONGO_URL
@@ -72,66 +72,9 @@ app.get("/", (req, res) => {
   res.render("index", { user })
 })
 
-// signin user if new user
-app.post("/signin", async (req, res) => {
-  const { username, password } = req.body
-  // if all the data is not given
-  if (!username || !password) {
-    res.send("fill all the data")
-  } else {
-    const isUser = await User.findOne({ username })
-    if (isUser) {
-      // if user is already present in database 
-      res.send("Username is taken choose another")
-      return
-    } else {
-      // authenticate user set token in session
-      const token = jwt.sign(
-        { token: username },
-        jwtSecret,
-        { expiresIn: 60 * 60 }
-      )
+// add user routes allow signin, login and logout
+app.use("/user", userRoutes)
 
-      req.session.authorization = { token }
-      const newUser = await User.create({ username, password })
-      res.redirect("/")
-      return
-    }
-  }
-})
-
-// login old user 
-app.post("/login", async (req, res) => {
-  const { username, password } = req.body
-  // if all the data is not given
-  if (!username || !password) {
-    res.send("fill all the data")
-  } else {
-    const isUser = await User.findOne({ username })
-    if (!isUser) {
-      // if user is not present in database
-      res.send("User is not in database")
-      return
-    } else {
-      // if user is confirmed set token for authentication
-      const token = jwt.sign(
-        { token: username },
-        "access",
-        { expiresIn: 60 * 60 }
-      )
-      req.session.authorization = { token }
-      res.redirect("/")
-      return
-    }
-  }
-})
-
-// logout user 
-app.get("/logout", (req, res) => {
-  // logout user by deleting authentication token
-  delete req.session.authorization
-  res.redirect("/")
-})
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
