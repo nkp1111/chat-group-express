@@ -7,8 +7,12 @@ router.get("/", (req, res) => {
     // check if req.user is present, authentication by middleware
     const { token } = req.user
     user = token
+    // const userInfo = 
+    res.render("profile/index", { user })
+    return
+  } else {
+    res.redirect("/")
   }
-  res.render("profile/index", { user })
 })
 
 module.exports = router

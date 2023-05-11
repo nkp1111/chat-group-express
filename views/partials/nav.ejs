@@ -1,6 +1,6 @@
 <nav class="navbar">
 
-  <div class="profile d-flex">
+  <div class="profile d-flex ms-auto">
      <!-- user image  -->
     <div>
       <img src="<%= user.image || "https://www.gravatar.com/avatar/" %>" alt="avatar" width="50" height="50" />
@@ -11,11 +11,12 @@
       <%= (user?.name && user.name[0].toUpperCase() + name.slice(1,)) || user.username || "None" %>
     </div>
 
-    <ul class="navbar-nav mb-2 mb-lg-0">
+    <ul class="navbar-nav mb-2">
       <li class="nav-item dropdown">
         <button class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
           dropdown
         </button>
+
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li>
             <a class="dropdown-item" href="/profile">
@@ -24,25 +25,22 @@
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="/groupchat">
+            <a class="dropdown-item" href="/">
               <!-- <MdGroup /> -->
               Group Chat
             </a>
           </li>
 
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
+          <li><hr class="dropdown-divider" /></li>
 
-          <li>
-            <li class="dropdown-item logout-item text-danger">
-              <a href="/user/logout">
-                <!-- delete icon  -->
-                Log Out
-              </a>
-            </li>
+          <li class="dropdown-item logout-item text-danger">
+            <a href="/user/logout">
+              <!-- delete icon  -->
+              Log Out
+            </a>
           </li>
         </ul>
+
       </li>
     </ul>
   </div>

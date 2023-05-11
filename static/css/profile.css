@@ -7,3 +7,168 @@
 .profile.edit .profile-info {
   display: none;
 }
+
+.profile-holder {
+  width: 60%;
+  min-width: 22rem;
+
+  margin: auto;
+}
+
+/* profile info  */
+.personal-info .card {
+  margin-top: 2rem;
+
+  border-radius: 1rem;
+}
+
+.card-header,
+.card-body {
+  padding: 1rem 4rem;
+}
+
+.card-header {
+  padding-top: 1.25rem;
+}
+
+.card-header .btn {
+  color: var(--gray);
+  border: 1px solid var(--gray);
+
+  padding: 0.3rem 2rem;
+  margin-left: 1rem;
+}
+
+.card-header .btn:hover {
+  box-shadow: 0 0 10px rgba(122, 122, 122, 0.2);
+}
+
+.card-body .row {
+  margin-bottom: 1rem;
+}
+
+.card-body .col-4 {
+  font-weight: 500;
+  padding: 0;
+}
+
+.card-body .col-8 {
+  color: var(--light-black);
+}
+
+.card-body .col-8 img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+
+  border-radius: 1rem;
+}
+
+/* edit page  */
+.back-button {
+  color: var(--blue);
+
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.back-button:hover {
+  color: var(--blue);
+  text-decoration: underline;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-button svg {
+  margin-right: 0.5rem;
+}
+
+.profile-edit {
+  margin-top: 2rem;
+  border: 1px solid var(--dark-white);
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.edit-form {
+  margin-top: 1.5rem;
+}
+
+.profile-img-edit {
+  border-radius: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  margin-right: 2rem;
+  position: relative;
+}
+
+.profile-img-edit img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+}
+
+.profile-img-edit::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.camera-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  fill: #fff;
+
+  font-size: 2rem;
+}
+
+.edit-form label {
+  font-weight: 500;
+  color: var(--light-black);
+}
+
+label[role="button"] {
+  color: var(--gray);
+}
+
+label[role="button"]:hover {
+  color: var(--light-black);
+}
+
+.edit-form .btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+@media screen and (max-width:62.5rem) {
+  .profile-holder {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width:48rem) {
+  .profile-holder {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:34.375rem) {
+
+  .card-header,
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-header {
+    padding-top: 1.25rem;
+  }
+}

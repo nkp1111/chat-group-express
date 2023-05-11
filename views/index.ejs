@@ -7,18 +7,14 @@
   <title>Basic Auth</title>
 </head>
 <body>
-  <!-- if user is login show user name  -->
-  <h1>Welcome <%= user && user %></h1>
-
-  <!-- if user is not logged in show sign up or login form  -->
+ 
   <% if (!user) { %>
+    <!-- if user is not logged in show sign up or login form  -->
    <%- include('partials/form') %>
-
   <% }  else  { %>
-    <!-- if user if login logout link is shown  -->
-    <a href="/user/logout">Logout</a>
+    <!-- if user is login show user name  -->
+    <%- include('chat-group/index') %>
   <% } %>
 
-    
 </body>
 </html>
