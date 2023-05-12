@@ -1,43 +1,43 @@
-
-  <section class='profile-info'>
-    <h2 class='text-center'>Personal info</h2>
-    <p class='text-center'>Basic info, like your name and photo</p>
-    <div class="card">
-      <div class="card-header d-flex align-items-center justify-content-between">
-        <div>
-          <h3 class="card-title">
-            Profile
-          </h3>
-          <p>Some info may be visible to other people</p>
-        </div>
-        <div>
-          <span class="profile-edit-link">Edit profile</span>
-        </div>
+<section class='profile-info'>
+  <h2 class='text-center'>Personal info</h2>
+  <p class='text-center'>Basic info, like your name and photo</p>
+  <div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <div>
+        <h3 class="card-title">
+          Profile
+        </h3>
+        <p>Some info may be visible to other people</p>
       </div>
-      <!-- card body -->
-      <div class="card-body">
-        <div class="container">
-          <% for( let item of ["photo", "name", "bio", "phone", "email", "password"] ) { %>
-          <div class="row" key={item}>
-            <!--  item name  -->
-            <div class="col-4">
-              <p><%= item.toUpperCase() %></p>
-            </div>
-            <!-- profile value  -->
-            <div class="col-8">
-              <% if (item === "password") { %>
-                <p>"**********"</p>
-              <% } else if (item === "photo") { %>
-                <img src="<%= user.image || "https://www.gravatar.com/avatar/" %>" alt="avatar" width="50" height="50" />
-              <% }else if (item === "email") { %>
-                <p></p>
-              <% } %>
-            </div>
-          </div>
-          <% } %>
-
-        </div>
+      <div>
+        <span class="profile-edit-link">Edit profile</span>
       </div>
     </div>
-  </section>
+      <!-- card body -->
+    <div class="card-body">
+      <div class="container">
+        <% for( let item of ["photo", "name", "bio", "phone", "email", "password"] ) { %>
+        <div class="row" key={item}>
+          <!--  item name  -->
+          <div class="col-4">
+            <p><%= item.toUpperCase() %></p>
+          </div>
+          <!-- profile value  -->
+          <div class="col-8">
+            <% if (item === "password") { %>
+              <p>"**********"</p>
+            <% } else if (item === "photo") { %>
+              <img src="<%= user.image?.url || "https://www.gravatar.com/avatar/" %>" alt="avatar" width="50" height="50" />
+            <% }else if (item === "email") { %>
+              <p><%= user.username %></p>
+            <% } else {%>
+              <p><%= user[item] %></p>
+            <% } %>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
   

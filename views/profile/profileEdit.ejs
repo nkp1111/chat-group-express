@@ -5,13 +5,13 @@
     <h2>Change Info</h2>
     <p>Changes will be reflected to every services</p>
 
-    <form class='edit-form needs-validation' noValidate>
+    <form class='edit-form needs-validation' method="post" action="/user/edit" noValidate>
         <!-- image  -->
       <div class="mb-3">
         <label for='image' role="button" class='d-flex align-items-center'>
           <div class='profile-img-edit'>
             <MdCameraAlt class='camera-icon' />
-            <img src="<%= user.image || "https://www.gravatar.com/avatar/" %>" alt="profile" />
+            <img src="<%= user.image?.url || "https://www.gravatar.com/avatar/" %>" alt="profile" />
           </div>
           CHANGE PHOTO
           <input type="file" id="image" name="image" class='invisible w-25' required />
