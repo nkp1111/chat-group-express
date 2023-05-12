@@ -46,6 +46,4 @@ document.querySelector(".needs-validation").addEventListener("submit", (e) => {
         })
     })
   }
-
-
 })

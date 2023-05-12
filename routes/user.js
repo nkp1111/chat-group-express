@@ -1,9 +1,8 @@
 const express = require("express")
 const router = express.Router()
-const jwt = require("jsonwebtoken")
 
 const { User } = require("../database/user")
-const jwtSecret = process.env.JSON_WEB_TOKEN_SECRET
+const { generateToken } = require("../utils/generateToken")
 
 // signin user if new user
 router.post("/signin", async (req, res) => {
@@ -19,12 +18,7 @@ router.post("/signin", async (req, res) => {
       return
     } else {
       // authenticate user set token in session
-      const token = jwt.sign(
-        { token: username },
-        jwtSecret,
-        { expiresIn: 60 * 60 }
-      )
-
+      const token = generateToken(username)
       req.session.authorization = { token }
       const newUser = await User.create({ username, password })
       res.redirect("/profile")
@@ -47,11 +41,7 @@ router.post("/login", async (req, res) => {
       return
     } else {
       // if user is confirmed set token for authentication
-      const token = jwt.sign(
-        { token: username },
-        jwtSecret,
-        { expiresIn: 60 * 60 }
-      )
+      const token = generateToken(username)
       req.session.authorization = { token }
       res.redirect("/profile")
       return
