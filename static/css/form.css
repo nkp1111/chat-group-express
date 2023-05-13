@@ -3,3 +3,30 @@
   cursor: pointer;
   font-weight: 500;
 }
+
+/* channel add form  */
+.new-channel {
+  display: none;
+}
+
+
+body.add-channel .new-channel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+}
+
+.channel-form-holder {
+  width: 50vw;
+  min-width: 25rem;
+  background-color: var(--dark-black);
+  z-index: 100001;
+}

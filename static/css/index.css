@@ -72,6 +72,10 @@ body {
   color: var(--white);
 }
 
+.card {
+  z-index: -1;
+}
+
 .card-black {
   width: 50%;
   max-width: 25rem;
@@ -97,3 +101,5 @@ textarea,
 i {
   color: var(--white);
 }
+
+body.add-channel {}
