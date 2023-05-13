@@ -22,3 +22,18 @@
   left: -9rem;
   top: 2rem;
 }
+
+/* sidebar dropdown  */
+.sidebar__profile .navbar,
+.sidebar__profile .navbar-profile {
+  width: 100%;
+}
+
+.sidebar__profile .dropdown-menu.show {
+  top: -9rem;
+  left: -5rem;
+}
+
+.navbar .dropdown-menu i {
+  color: var(--black);
+}

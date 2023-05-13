@@ -93,3 +93,7 @@ textarea,
 .form-control::-webkit-input-placeholder {
   color: var(--grey);
 }
+
+i {
+  color: var(--white);
+}
