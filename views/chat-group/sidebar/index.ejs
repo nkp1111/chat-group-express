@@ -1,0 +1,19 @@
+<div class='app__sidebar d-flex flex-column'>
+  <div class="sidebar__channels">
+    <div class="sidebar__channels-add d-flex justify-content-between">
+      <strong>Channels</strong>
+      <button class='btn channels__add-btn'>
+        <!-- <AiOutlinePlus /> -->
+      </button>
+    </div>
+  </div>
+  <div class="sidebar__lists">
+    <%- include('./channelSeachForm.ejs') %>
+    <div class="sidebar__lists-channel">
+      <%- include('./sidebarChannels.ejs') %>
+    </div>
+  </div>
+  <div class="sidebar__profile">
+    <%- include('./profileBox.ejs') %>
+  </div>
+</div>

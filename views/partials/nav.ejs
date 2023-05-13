@@ -1,17 +1,17 @@
-<nav class="navbar">
+<nav class="navbar p-0">
 
-  <div class="profile d-flex ms-auto">
+  <div class="profile d-flex gap-1">
      <!-- user image  -->
     <div>
       <img src="<%= user?.image?.url || "https://www.gravatar.com/avatar/" %>" alt="avatar" width="50" height="50" />
     </div>
 
      <!-- username  -->
-    <div class='me-3'>
+    <div>
       <%= (user?.name && user.name[0].toUpperCase() + user.name.slice(1,)) || user?.username || "None" %>
     </div>
 
-    <ul class="navbar-nav mb-2">
+    <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <button class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
           dropdown
@@ -33,9 +33,8 @@
 
           <li><hr class="dropdown-divider" /></li>
 
-          <li class="dropdown-item logout-item text-danger">
-            <a href="/user/logout">
-              <!-- delete icon  -->
+          <li class="dropdown-item logout-item">
+            <a href="/user/logout" class="text-danger">
               Log Out
             </a>
           </li>
