@@ -1,0 +1,24 @@
+.navbar .navbar-profile img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  margin-left: 0.3rem;
+}
+
+.dropdown-toggle:hover {
+  box-shadow: 0 0 2px var(--white);
+}
+
+/* dropdown on profile page  */
+.dropdown-menu.show {
+  position: absolute;
+  left: -9rem;
+  top: 2rem;
+}

@@ -1,3 +1,5 @@
+/* profile  */
+
 .profile .profile-info,
 .profile.edit .profile-edit {
   display: block;
@@ -8,6 +10,15 @@
   display: none;
 }
 
+/* profile navigation  */
+.profile .navbar {
+  width: 100%;
+}
+
+.profile .navbar .navbar-profile {
+  margin-left: auto;
+}
+
 .profile-holder {
   width: 60%;
   min-width: 22rem;
@@ -16,11 +27,15 @@
 }
 
 /* profile info  */
-.personal-info .card {
+.profile-info .card {
+  margin: auto;
   margin-top: 2rem;
 
   border-radius: 1rem;
+  width: 70%;
+  background-color: var(--dark-black);
 }
+
 
 .card-header,
 .card-body {
@@ -53,7 +68,7 @@
 }
 
 .card-body .col-8 {
-  color: var(--light-black);
+  opacity: 0.9;
 }
 
 .card-body .col-8 img {
@@ -158,6 +173,10 @@ label[role="button"]:hover {
 @media screen and (max-width:48rem) {
   .profile-holder {
     width: 90%;
+  }
+
+  .profile-info .card {
+    width: 95%;
   }
 }
 
