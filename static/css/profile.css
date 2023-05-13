@@ -1,5 +1,4 @@
 /* profile  */
-
 .profile .profile-info,
 .profile.edit .profile-edit {
   display: block;
@@ -11,8 +10,16 @@
 }
 
 /* profile navigation  */
+.profile {
+  padding-top: 8vh;
+}
+
 .profile .navbar {
   width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
 }
 
 .profile .navbar .navbar-profile {
@@ -47,9 +54,6 @@
 }
 
 .card-header .btn {
-  color: var(--gray);
-  border: 1px solid var(--gray);
-
   padding: 0.3rem 2rem;
   margin-left: 1rem;
 }
@@ -100,63 +104,25 @@
 }
 
 .profile-edit {
-  margin-top: 2rem;
-  border: 1px solid var(--dark-white);
   border-radius: 2rem;
   padding: 2rem;
+  margin: 1rem auto;
+
+  background-color: var(--dark-black);
+  width: 70%;
+}
+
+.profile-edit .profile-edit-link {
+  border: 1px solid var(--grey);
+  color: inherit;
 }
 
 .edit-form {
   margin-top: 1.5rem;
 }
 
-.profile-img-edit {
-  border-radius: 1rem;
-  overflow: hidden;
-  flex-shrink: 0;
-
-  margin-right: 2rem;
-  position: relative;
-}
-
-.profile-img-edit img {
-  width: 5rem;
-  height: 5rem;
-  object-fit: cover;
-}
-
-.profile-img-edit::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.camera-icon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  fill: #fff;
-
-  font-size: 2rem;
-}
-
 .edit-form label {
   font-weight: 500;
-  color: var(--light-black);
-}
-
-label[role="button"] {
-  color: var(--gray);
-}
-
-label[role="button"]:hover {
-  color: var(--light-black);
 }
 
 .edit-form .btn {

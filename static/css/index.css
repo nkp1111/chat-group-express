@@ -78,3 +78,18 @@ body {
   margin: auto;
   background-color: var(--dark-black);
 }
+
+input[type="text"],
+input[type="file"],
+input[type="email"],
+input[type="password"],
+textarea,
+.form-control {
+  background-color: var(--light-black);
+}
+
+
+.form-control,
+.form-control::-webkit-input-placeholder {
+  color: var(--grey);
+}

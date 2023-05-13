@@ -1,21 +1,17 @@
 <div class="profile-edit">
-  <span class="profile-edit-link">Cancel</span>
+  <span class="profile-edit-link btn mb-4">Cancel</span>
 
-  <section >
+  <section>
     <h2>Change Info</h2>
     <p>Changes will be reflected to every services</p>
 
-    <form class='edit-form needs-validation' method="post" action="/profile/edit" enctype="multipart/form-data" noValidate>
+    <form class='edit-form needs-validation py-3' method="post" action="/profile/edit" enctype="multipart/form-data" noValidate>
         <!-- image  -->
       <div class="mb-3">
-        <label for='image' role="button" class='d-flex align-items-center'>
-          <!-- <div class='profile-img-edit'>
-            <MdCameraAlt class='camera-icon' />
-            <img src="<%= user.image?.url || "https://www.gravatar.com/avatar/" %>" alt="profile" />
-          </div> -->
+        <label for='image' class='form-label'>
           CHANGE PHOTO
-          <input type="file" id="image" name="image" class=' ' required />
         </label>
+        <input type="file" id="image" name="image" class='form-control' required />
       </div>
 
         <!-- name  -->
@@ -27,8 +23,7 @@
         <!-- bio  -->
       <div class="mb-3">
         <label for="bio" class="form-label">Bio</label>
-        <textarea type="text" class="form-control" id="bio" placeholder="Enter your bio..." required>
-        </textarea>
+        <textarea type="text" class="form-control" id="bio" placeholder="Enter your bio..." required></textarea>
       </div>
 
         <!-- phone  -->
@@ -36,26 +31,26 @@
         <label for="phone" class="form-label">Phone</label>
         <input type="text" class="form-control" id="phone" placeholder="Enter your phone..." required/>
       </div>
-
-        <!-- email  -->
+<!-- 
+       email 
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" placeholder="Enter your email..." required/>
       </div>
 
-        <!-- password  -->
+        password
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input type="text" class="form-control" id="password" placeholder="Enter your password..." required/>
-      </div>
+      </div> 
+-->
 
-      <div class="mb-3">
-        <button class='btn' type="submit">Save</button>
+      <div class="mt-3">
+        <button class='btn btn-danger' type="submit">Save</button>
       </div>
     </form>
 
   </section>
 </div>
   
-
 <script src="js/handleEdit.js"></script>
