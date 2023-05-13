@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken")
 
 const userRoutes = require("./routes/user")
 const profileRoutes = require("./routes/profile")
+const { User } = require("./database/user")
 
 const port = process.env.PORT || 3000
 const mongoUrl = process.env.MONGO_URL
@@ -65,12 +66,12 @@ app.use("/", (req, res, next) => {
 })
 
 // home route show user if present else show signup/login form
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   let user = null
   if (req.user) {
     // check if req.user is present, authentication by middleware
     const { token } = req.user
-    user = token
+    user = await User.findOne({ username: token })
   }
   res.render("index", { user })
 })

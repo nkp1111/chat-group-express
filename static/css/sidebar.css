@@ -8,9 +8,22 @@
 .sidebar__channels,
 .sidebar__profile {
   height: 5vh;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar__lists {
   flex: 1;
   overflow: auto;
+}
+
+.sidebar__profile img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+}
+
+/* sidebar lists  */
+.sidebar-channels span {
+  white-space: nowrap;
 }
