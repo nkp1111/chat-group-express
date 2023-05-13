@@ -71,3 +71,10 @@ body {
   background: var(--black);
   color: var(--white);
 }
+
+.card-black {
+  width: 50%;
+  max-width: 25rem;
+  margin: auto;
+  background-color: var(--dark-black);
+}
