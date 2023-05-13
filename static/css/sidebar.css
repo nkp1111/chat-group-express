@@ -1,0 +1,16 @@
+/* sidebar  */
+.app__sidebar {
+  width: 20vw;
+  min-width: 6.25rem;
+  height: 100%;
+}
+
+.sidebar__channels,
+.sidebar__profile {
+  height: 5vh;
+}
+
+.sidebar__lists {
+  flex: 1;
+  overflow: auto;
+}

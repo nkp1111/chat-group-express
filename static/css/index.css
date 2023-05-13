@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap');
+
+
+/* css reset  */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  /* main background  */
+  --black: #252329;
+  /* input background  */
+  --light-black: #3C393F;
+  /* sidebar background  */
+  --dark-black: #120F13;
+  /* break line and light text  */
+  --grey: #828282;
+  /* text color  */
+  --white: #E0E0E0;
+  /* button background */
+  --blue: #2F80ED;
+
+  --font: 'Noto Sans';
+}
+
+body {
+  font-family: var(--font), sans-serif;
+  background: var(--black);
+  color: var(--white);
+}
