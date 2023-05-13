@@ -1,0 +1,13 @@
+/* sign in and login form  */
+.signup-form-holder {
+  background-color: var(--dark-black);
+  width: 50%;
+  min-width: 25rem;
+
+  margin-top: 5vh;
+}
+
+.signup-form-holder .link {
+  cursor: pointer;
+  font-weight: 500;
+}

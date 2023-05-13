@@ -3,7 +3,7 @@ const form = document.querySelector("form")
 const formHeading = document.querySelector("legend")
 const control = document.querySelector(".control-text")
 if (control) {
-  const link = control.querySelector("a")
+  const link = control.querySelector(".link")
   const text = control.querySelector("span")
   link.addEventListener("click", (e) => {
     if (e.currentTarget.innerText === "register") {

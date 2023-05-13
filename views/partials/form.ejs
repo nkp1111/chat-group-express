@@ -1,19 +1,30 @@
-<form action="/user/signin" method="POST">
-  <fieldset>
-    <legend>Sign Up</legend>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password" required>
-    <br>
-    <button>Submit</button>
-  </fieldset>
-</form>
-
-<!-- change form from sign up to login and from login to signup  -->
-<p class="control-text"><span>Already registered?</span>
-  <a href="#">login</a>
-</p>
+<h1 class="text-center mt-5 mb-3">Group Chat </h1>
+<h2 class="text-center mb-3">SignUp/Login Form</h2>
+<div class="signup-form-holder card p-5 mx-auto">
+  <form action="/user/signin" method="POST" class="needs-validation">
+    <fieldset>
+      <legend>Sign Up</legend>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username"
+        class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="text" id="password" name="password" 
+        class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary">Submit</button>
+      </div>
+    </fieldset>
+  </form>
+  
+  <!-- change form from sign up to login and from login to signup  -->
+  <p class="control-text">
+    <span>Already registered?</span>
+    <span class="text-primary link">login</span>
+  </p>
+</div>
 
 <script src="js/signup.js"></script>
