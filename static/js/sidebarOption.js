@@ -7,4 +7,3 @@ if (backBtn) {
   })
 }
 
-sidebarChannelControl.add

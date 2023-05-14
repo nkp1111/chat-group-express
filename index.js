@@ -5,6 +5,8 @@ const mongoose = require("mongoose")
 const MongoDBStore = require("connect-mongo")
 const session = require("express-session")
 const jwt = require("jsonwebtoken")
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 const userRoutes = require("./routes/user")
 const profileRoutes = require("./routes/profile")
@@ -17,6 +19,7 @@ const mongoUrl = process.env.MONGO_URL
 const jwtSecret = process.env.JSON_WEB_TOKEN_SECRET
 
 let currentChannel = "welcome"
+let currentActiveUser = 0
 
 // connects to mongo database
 mongoose.connect(mongoUrl)
@@ -95,6 +98,23 @@ app.get("/", async (req, res) => {
 app.use("/user", userRoutes)
 app.use("/profile", profileRoutes)
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server running on port ${port}`)
+})
+
+// socket 
+
+// starting connection
+io.on("connection", function (socket) {
+  console.log("A user connected")
+  currentActiveUser += 1
+
+  io.emit("count", currentActiveUser)
+
+  // on disconnection of a user
+  socket.on("disconnect", function () {
+    console.log("user disconnected")
+    currentActiveUser -= 1
+    io.emit("count", currentActiveUser)
+  })
 })

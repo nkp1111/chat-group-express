@@ -1,6 +1,7 @@
 <div class="main__message-box d-flex flex-column">
-  <div class="channel-name">
-    <%= channelInfo.name %>
+  <div class="channel-name d-flex justify-content-between align-items-center">
+    <span><%= channelInfo.name %></span>
+    <span class="ms-auto d-inline-block">Chatting Users: <span class="active-user-count">0</span></span>
   </div>
   <div class="message-holder">
     <% for( let message of channelInfo?.messages ) { %>
