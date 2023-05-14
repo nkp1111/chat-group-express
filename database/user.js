@@ -24,8 +24,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
   },
   lastVisitedChannel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Channel"
+    type: String
   }
 })
 

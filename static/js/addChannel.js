@@ -10,9 +10,12 @@ if (showModalBtn) {
 
 
 // hide modal 
-const removeModalBtn = document.querySelector(".channel-not-add")
-if (removeModalBtn) {
-  removeModalBtn.addEventListener("click", (e) => {
-    body.classList.remove("add-channel")
+const removeModalBtns = document.querySelectorAll(".channel-not-add")
+if (removeModalBtns.length > 0) {
+  removeModalBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      body.classList.remove("add-channel")
+    })
   })
 }
+
