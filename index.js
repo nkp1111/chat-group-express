@@ -140,7 +140,7 @@ app.get("/channel/:channelName", async (req, res) => {
   try {
     if (allChannelNames.includes(channelName)) {
       allUsers[token].currentChannel = channelName
-      await User.updateOne({ username: token }, { lastVisitedChannel: name })
+      await User.updateOne({ username: token }, { lastVisitedChannel: channelName })
     }
     res.redirect("/")
   } catch (error) {
