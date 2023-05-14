@@ -14,6 +14,13 @@
   align-items: center;
 }
 
+.sidebar__profile img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+}
+
+/* hide and show sidebar items  */
 .app__sidebar .sidebar__lists,
 .app__sidebar.all-channels .sidebar__detail {
   display: none;
@@ -26,13 +33,25 @@
   overflow: auto;
 }
 
-.sidebar__profile img {
-  width: 2rem;
-  height: 2rem;
-  object-fit: cover;
+/* sidebar channels  */
+.sidebar__channels>div {
+  display: flex;
+  align-items: center;
+  gap: 2;
+  width: 100%;
 }
 
-/* sidebar lists  */
+/* hide and show side bar different controls  */
+.app__sidebar .sidebar__channels-add,
+.app__sidebar.all-channels .sidebar__channels-back {
+  display: none;
+}
+
+.app__sidebar.all-channels .sidebar__channels-add,
+.app__sidebar .sidebar__channels-back {
+  display: flex;
+}
+
 .sidebar-channels span {
   white-space: nowrap;
 }

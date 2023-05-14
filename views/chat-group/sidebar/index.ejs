@@ -1,6 +1,14 @@
 <div class='app__sidebar d-flex flex-column'>
   <div class="sidebar__channels">
-    <div class="sidebar__channels-add d-flex align-items-center gap-2 w-100">
+
+    <div class="sidebar__channels-add">
+      <strong>Channels</strong>
+      <button class='btn channels__add-btn'>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+
+    <div class="sidebar__channels-back">
       <button class='btn channels__back-btn'>
         <i class="fa-solid fa-chevron-left"></i>
       </button>
@@ -14,19 +22,7 @@
     </div>
   </div>
   <div class="sidebar__detail">
-    <strong><%= channelInfo.name %></strong>
-    <br>
-    <p><%= channelInfo?.description %></p>
-    <br class="mb-3">
-    <strong>MEMBERS</strong>
-    <div class="sidebar-members">
-      <% for( let member of channelInfo?.members ) { %>
-      <div class="d-flex gap-2">
-        <img src="<%= member.image %>" alt="avatar">
-        <p><%= member.name %></p>
-      </div>
-      <% } %>
-    </div>
+    <%- include('./channelMembers.ejs') %>
   </div>
   <div class="sidebar__profile w-100">
     <%- include('../../partials/nav') %>

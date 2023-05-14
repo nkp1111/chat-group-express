@@ -1,0 +1,13 @@
+<strong><%= channelInfo.name %></strong>
+<br>
+<p><%= channelInfo?.description %></p>
+<br class="mb-3">
+<strong>MEMBERS</strong>
+<div class="sidebar-members">
+  <% for( let member of channelInfo?.members ) { %>
+  <div class="d-flex gap-2">
+    <img src="<%= member.image %>" alt="avatar">
+    <p><%= member.name %></p>
+  </div>
+  <% } %>
+</div>
