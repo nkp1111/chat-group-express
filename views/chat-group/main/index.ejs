@@ -1,0 +1,28 @@
+<div class="main__message-box d-flex flex-column">
+  <div class="channel-name">
+    <%= channelInfo.name %>
+  </div>
+  <div class="message-holder">
+    <% for( let message of channelInfo?.messages ) { %>
+    <div class="card flex-row" style="background-color: transparent;">
+      <div class="front">
+        <img src="<%= message.writer.userImage %>" alt="avatar">
+      </div>
+      <div class="latter">
+        <div class="card-head">
+          <strong><%= message.writer.username %></strong>
+          <span><%= message.date %></span>
+        </div>
+        <div class="card-body">
+          <p><%= message.message %></p>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <div class="channel-message-add">
+    <form action="">
+      <input type="text" placeholder="Type a message here">
+    </form>
+  </div>
+</div>

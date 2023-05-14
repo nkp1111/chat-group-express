@@ -82,7 +82,7 @@ app.get("/", async (req, res) => {
 
     getChannelsAndInfo(currentChannel).then((data) => {
       const { channels, channelInfo } = data
-      console.log(channelInfo)
+      // console.log(channelInfo)
       res.render("index", { user, channels, channelInfo })
       return
     })
