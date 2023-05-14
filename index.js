@@ -94,7 +94,9 @@ app.get("/", async (req, res) => {
 
     getChannelsAndInfo(currentChannel).then((data) => {
       const { channels, channelInfo } = data
-      allChannelNames = channels.map(c => c.name)
+      if (allChannelNames.length === 0) {
+        allChannelNames = channels.map(c => c.name)
+      }
       // console.log(channelInfo)
       res.render("index", { user, channels, channelInfo })
       return
@@ -125,7 +127,7 @@ app.get("/channel/add", async (req, res) => {
       ],
       messages: []
     })
-
+    allChannelNames.push(name)
     allUsers[token].currentChannel = name
     await User.updateOne({ username: token }, { lastVisitedChannel: name })
   } catch (error) {
@@ -137,9 +139,9 @@ app.get("/channel/add", async (req, res) => {
 app.get("/channel/:channelName", async (req, res) => {
   // change channel to chat
   const { channelName } = req.params
-  const { token } = req.user
 
   try {
+    const { token } = req.user
     if (allChannelNames.includes(channelName)) {
       allUsers[token].currentChannel = channelName
       await User.updateOne({ username: token }, { lastVisitedChannel: channelName })
@@ -162,6 +164,28 @@ io.on("connection", function (socket) {
   currentActiveUser += 1
 
   socket.emit("count", currentActiveUser)
+
+  socket.on("newMessage", async (data) => {
+    const { message, username, channel } = data
+    const { userImage } = allUsers[username]
+
+    const newMessage = await Message.create({
+      message,
+      writer: {
+        username,
+        userImage,
+      }
+    })
+    const channelToUpdate = await Channel.findOne({ name: channel })
+    channelToUpdate.messages.push(newMessage)
+    const allMembers = channelToUpdate.members.map(m => m.name)
+    if (!allMembers.includes(username)) {
+      channelToUpdate.members.push({ username, image: userImage })
+    }
+    await channelToUpdate.save()
+
+    socket.emit("channelUpdated", channel)
+  })
 
   // on disconnection of a user
   socket.on("disconnect", function () {
