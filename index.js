@@ -82,9 +82,8 @@ app.get("/", async (req, res) => {
 
     getChannelsAndInfo(currentChannel).then((data) => {
       const { channels, channelInfo } = data
-      const { messages, members } = channelInfo
-      console.log(channels, messages, members)
-      res.render("index", { user, messages, members, channels })
+      console.log(channelInfo)
+      res.render("index", { user, channels, channelInfo })
       return
     })
   }
