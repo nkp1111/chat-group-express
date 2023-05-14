@@ -38,6 +38,7 @@ router.post("/edit", async (req, res) => {
       return
     } catch (error) {
       res.render("error", { msg: "Error Updating profile" })
+      return
     }
 
   } else {

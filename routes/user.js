@@ -10,6 +10,7 @@ router.post("/signin", async (req, res) => {
   // if all the data is not given
   if (!username || !password) {
     res.render("error", { msg: "fill all the data" })
+    return
   } else {
     const isUser = await User.findOne({ username })
     if (isUser) {
@@ -33,6 +34,7 @@ router.post("/login", async (req, res) => {
   // if all the data is not given
   if (!username || !password) {
     res.render("error", { msg: "fill all the data" })
+    return
   } else {
     const isUser = await User.findOne({ username })
     if (!isUser) {

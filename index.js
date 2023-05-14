@@ -67,6 +67,8 @@ app.use("/", (req, res, next) => {
     jwt.verify(token, jwtSecret, (err, user) => {
       if (!err) {
         req.user = user;
+      } else {
+        console.log(err)
       }
     });
   }
@@ -126,10 +128,10 @@ app.get("/channel/add", async (req, res) => {
 
     allUsers[token].currentChannel = name
     await User.updateOne({ username: token }, { lastVisitedChannel: name })
-    res.redirect("/")
   } catch (error) {
     console.log(error)
   }
+  res.redirect("/")
 })
 
 app.get("/channel/:channelName", async (req, res) => {
@@ -142,12 +144,10 @@ app.get("/channel/:channelName", async (req, res) => {
       allUsers[token].currentChannel = channelName
       await User.updateOne({ username: token }, { lastVisitedChannel: channelName })
     }
-    res.redirect("/")
-    return
   } catch (error) {
     console.log(error)
-    res.redirect("/")
   }
+  res.redirect("/")
 })
 
 server.listen(port, () => {
