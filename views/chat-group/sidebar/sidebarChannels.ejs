@@ -1,10 +1,10 @@
 <div class="sidebar-channels">
   <%  for (let channel of channels)  { %>
-    <p class='d-flex align-items-center'>
+    <a class='d-flex align-items-center' href="/channel/<%= channel.name %>">
       <span class='me-3'>
         <%= channel.name.toUpperCase().split(" ").map(c => c[0].toUpperCase()).slice(0, 2).join(" ") %>
       </span>
       <%= channel.name %>
-    </p>
+    </a>
   <% } %>
 </div>

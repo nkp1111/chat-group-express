@@ -20,6 +20,7 @@ const jwtSecret = process.env.JSON_WEB_TOKEN_SECRET
 
 let allUsers = {}
 let currentActiveUser = 0
+let allChannelNames = []
 
 // connects to mongo database
 mongoose.connect(mongoUrl)
@@ -91,6 +92,7 @@ app.get("/", async (req, res) => {
 
     getChannelsAndInfo(currentChannel).then((data) => {
       const { channels, channelInfo } = data
+      allChannelNames = channels.map(c => c.name)
       // console.log(channelInfo)
       res.render("index", { user, channels, channelInfo })
       return
@@ -105,6 +107,7 @@ app.use("/user", userRoutes)
 app.use("/profile", profileRoutes)
 
 app.get("/channel/add", async (req, res) => {
+  // add new channel to list
   try {
     const { token } = req.user
     const { name, description } = req.query
@@ -127,7 +130,23 @@ app.get("/channel/add", async (req, res) => {
   } catch (error) {
     console.log(error)
   }
+})
 
+app.get("/channel/:channelName", async (req, res) => {
+  // change channel to chat
+  const { channelName } = req.params
+  const { token } = req.user
+
+  try {
+    if (allChannelNames.includes(channelName)) {
+      allUsers[token].currentChannel = channelName
+      await User.updateOne({ username: token }, { lastVisitedChannel: name })
+    }
+    res.redirect("/")
+  } catch (error) {
+    console.log(error)
+  }
+  res.redirect("/")
 })
 
 server.listen(port, () => {
