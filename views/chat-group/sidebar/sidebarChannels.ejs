@@ -1,10 +1,10 @@
 <div class="sidebar-channels">
-  <%  for (let channel of ["Front-end developers","random","BACK-END","CATS AND DOGS","Welcome"])  { %>
+  <%  for (let channel of channels)  { %>
     <p class='d-flex align-items-center'>
       <span class='me-3'>
-        <%= channel.toUpperCase().split(" ").map(c => c[0].toUpperCase()).slice(0, 2).join(" ") %>
+        <%= channel.name.toUpperCase().split(" ").map(c => c[0].toUpperCase()).slice(0, 2).join(" ") %>
       </span>
-      <%= channel %>
+      <%= channel.name %>
     </p>
   <% } %>
 </div>

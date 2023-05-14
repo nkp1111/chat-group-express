@@ -14,7 +14,14 @@
   align-items: center;
 }
 
-.sidebar__lists {
+.app__sidebar .sidebar__lists,
+.app__sidebar.all-channels .sidebar__detail {
+  display: none;
+}
+
+.app__sidebar.all-channels .sidebar__lists,
+.app__sidebar .sidebar__detail {
+  display: block;
   flex: 1;
   overflow: auto;
 }
