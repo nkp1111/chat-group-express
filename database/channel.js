@@ -9,9 +9,9 @@ const ChannelSchema = new mongoose.Schema({
   description: String,
   members: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    },
+      name: String,
+      image: String,
+    }
   ],
   messages: [
     {

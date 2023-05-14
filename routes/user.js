@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
-const { User } = require("../database/user")
+const { User } = require("../database")
 const { generateToken } = require("../utils/generateToken")
 
 // signin user if new user

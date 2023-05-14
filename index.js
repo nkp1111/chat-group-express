@@ -8,11 +8,15 @@ const jwt = require("jsonwebtoken")
 
 const userRoutes = require("./routes/user")
 const profileRoutes = require("./routes/profile")
-const { User } = require("./database/user")
+const { User, Channel, Message } = require("./database")
+const getChannelsAndInfo = require("./utils/getChannelsAndInfo")
+
 
 const port = process.env.PORT || 3000
 const mongoUrl = process.env.MONGO_URL
 const jwtSecret = process.env.JSON_WEB_TOKEN_SECRET
+
+let currentChannel = "welcome"
 
 // connects to mongo database
 mongoose.connect(mongoUrl)
@@ -72,8 +76,21 @@ app.get("/", async (req, res) => {
     // check if req.user is present, authentication by middleware
     const { token } = req.user
     user = await User.findOne({ username: token })
+    if (user?.lastVisitedChannel) {
+      currentChannel = user.lastVisitedChannel
+    }
+
+    getChannelsAndInfo(currentChannel).then((data) => {
+      const { channels, channelInfo } = data
+      const { messages, members } = channelInfo
+      console.log(channels, messages, members)
+      res.render("index", { user, messages, members, channels })
+      return
+    })
   }
-  res.render("index", { user })
+  else {
+    res.render("index", { user })
+  }
 })
 
 app.use("/user", userRoutes)
