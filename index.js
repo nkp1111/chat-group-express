@@ -143,10 +143,11 @@ app.get("/channel/:channelName", async (req, res) => {
       await User.updateOne({ username: token }, { lastVisitedChannel: channelName })
     }
     res.redirect("/")
+    return
   } catch (error) {
     console.log(error)
+    res.redirect("/")
   }
-  res.redirect("/")
 })
 
 server.listen(port, () => {
