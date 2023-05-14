@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000
 const mongoUrl = process.env.MONGO_URL
 const jwtSecret = process.env.JSON_WEB_TOKEN_SECRET
 
-let currentChannel = "welcome"
+let allUsers = {}
 let currentActiveUser = 0
 
 // connects to mongo database
@@ -79,9 +79,15 @@ app.get("/", async (req, res) => {
     // check if req.user is present, authentication by middleware
     const { token } = req.user
     user = await User.findOne({ username: token })
-    if (user?.lastVisitedChannel) {
-      currentChannel = user.lastVisitedChannel
+
+    if (!allUsers.hasOwnProperty(token)) {
+      allUsers[token] = {
+        currentChannel: user.lastVisitedChannel || "welcome",
+        userImage: user.image.url
+      }
     }
+
+    const { currentChannel } = allUsers[token]
 
     getChannelsAndInfo(currentChannel).then((data) => {
       const { channels, channelInfo } = data
@@ -98,18 +104,44 @@ app.get("/", async (req, res) => {
 app.use("/user", userRoutes)
 app.use("/profile", profileRoutes)
 
+app.get("/channel/add", async (req, res) => {
+  try {
+    const { token } = req.user
+    const { name, description } = req.query
+
+    await Channel.create({
+      name,
+      description,
+      members: [
+        {
+          name: token,
+          image: allUsers[token].userImage
+        }
+      ],
+      messages: []
+    })
+
+    allUsers[token].currentChannel = name
+    await User.updateOne({ username: token }, { lastVisitedChannel: name })
+    res.redirect("/")
+  } catch (error) {
+    console.log(error)
+  }
+
+})
+
 server.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })
 
-// socket 
 
+///////////////// socket /////////////////
 // starting connection
 io.on("connection", function (socket) {
   console.log("A user connected")
   currentActiveUser += 1
 
-  io.emit("count", currentActiveUser)
+  socket.emit("count", currentActiveUser)
 
   // on disconnection of a user
   socket.on("disconnect", function () {
@@ -118,3 +150,6 @@ io.on("connection", function (socket) {
     io.emit("count", currentActiveUser)
   })
 })
+
+
+////////////////////////////////////////
