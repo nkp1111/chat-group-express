@@ -7,6 +7,13 @@
   background-color: var(--dark-black);
 }
 
+/* sidebar elements padding  */
+.sidebar__channels,
+.sidebar__lists,
+.sidebar__detail {
+  padding: 1rem;
+}
+
 .sidebar__channels,
 .sidebar__profile {
   height: 8vh;
@@ -52,6 +59,82 @@
   display: flex;
 }
 
-.sidebar-channels span {
+/* sidebar show all channels  */
+
+/* sidebar channel add button  */
+.channels__add-btn {
+  margin-left: auto;
+  background-color: var(--light-black);
+  padding: 0.2rem 0.5rem;
+  transition: all 0.3s linear;
+}
+
+.channels__add-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 0 10px var(--black);
+}
+
+/* search form  */
+.input-group-text {
+  background-color: var(--light-black);
+  border-right: 0;
+}
+
+/* channel names list  */
+.sidebar__lists-channel {
+  margin-top: 2rem;
+}
+
+.list__channels-name a {
+  text-decoration: none;
+  color: inherit;
+
+  margin-bottom: 1rem;
+}
+
+.list__channels-name a:hover span {
+  box-shadow: 0 0 5px var(--light-black);
+}
+
+.list__channels-name span {
   white-space: nowrap;
+  background-color: var(--light-black);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+
+/* sidebar show one channel detail  */
+
+/* sidebar channels back  */
+.channels__back-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 0 10px var(--black);
+}
+
+.channels__back-btn {
+  margin-right: 0.5rem;
+}
+
+.sidebar__detail strong {
+  text-transform: uppercase;
+  font-weight: 700;
+
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+.sidebar__detail p {
+  color: var(--grey);
+}
+
+.sidebar__detail img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.sidebar-members div {
+  margin-bottom: 1rem;
 }

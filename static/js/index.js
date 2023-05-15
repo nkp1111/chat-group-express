@@ -3,7 +3,9 @@ const socket = io()
 // show current active user count
 const activeUserShow = document.querySelector(".active-user-count")
 socket.on("count", (num) => {
-  activeUserShow.innerText = num
+  if (activeUserShow) {
+    activeUserShow.innerText = num
+  }
 })
 
 // add new channel

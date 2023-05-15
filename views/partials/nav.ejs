@@ -6,14 +6,14 @@
       <img src="<%= user?.image?.url || "https://www.gravatar.com/avatar/" %>" alt="avatar" />
     </div>
 
-     <!-- username  -->
-     <div class="d-none current-user-name">
-       <%=  user?.username || "None" %>
-      </div>
-      <!-- username  -->
-      <div>
-        <%= (user?.name && user.name[0].toUpperCase() + user.name.slice(1,)) || user?.username || "None" %>
-      </div>
+    <!-- username  -->
+    <div class="d-none current-user-name">
+      <%=  user?.username || "None" %>
+    </div>
+    <!-- username  -->
+    <div>
+      <%= (user?.name && user.name[0].toUpperCase() + user.name.slice(1,)) || user?.username || "None" %>
+    </div>
 
     <ul class="navbar-nav">
       <li class="nav-item dropdown">

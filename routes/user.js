@@ -22,7 +22,7 @@ router.post("/signin", async (req, res) => {
       const token = generateToken(username)
       req.session.authorization = { token }
       const newUser = await User.create({ username, password })
-      res.redirect("/profile")
+      res.redirect("/")
       return
     }
   }
@@ -45,7 +45,7 @@ router.post("/login", async (req, res) => {
       // if user is confirmed set token for authentication
       const token = generateToken(username)
       req.session.authorization = { token }
-      res.redirect("/profile")
+      res.redirect("/")
       return
     }
   }
