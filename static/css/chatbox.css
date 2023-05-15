@@ -1,5 +1,4 @@
 /* chat box  */
-
 .main-content {
   height: 100vh;
   overflow: auto;
@@ -80,4 +79,30 @@
   flex: 1;
   border: none;
   padding: 0.5rem 1rem;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+/* for small screen  */
+@media screen and (max-width: 50rem) {
+  .hamburger-menu {
+    display: inline-block;
+    margin-right: 1rem;
+    border: 1px solid var(--grey);
+    border-radius: 0.5rem;
+
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+  }
+
+  .hamburger-menu:hover {
+    box-shadow: 0 0 2px var(--dark-black);
+  }
+
+  .main__message-box .channel-name {
+    flex-wrap: wrap;
+    height: auto;
+  }
 }

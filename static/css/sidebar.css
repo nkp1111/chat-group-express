@@ -4,6 +4,8 @@
   min-width: 18.75rem;
   height: 100%;
 
+  display: flex;
+
   background-color: var(--dark-black);
 }
 
@@ -96,17 +98,19 @@
   margin-bottom: 1rem;
 }
 
-.list__channels-name a:hover span {
-  box-shadow: 0 0 5px var(--light-black);
-}
-
 .list__channels-name span {
   white-space: nowrap;
   background-color: var(--light-black);
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
+  width: 2.4rem;
+  text-align: center;
+  font-weight: 700;
 }
 
+.list__channels-name a:hover span {
+  box-shadow: 0 0 5px var(--light-black);
+}
 
 /* sidebar show one channel detail  */
 
@@ -141,4 +145,34 @@
 
 .sidebar-members div {
   margin-bottom: 1rem;
+}
+
+.app__sidebar .position-absolute {
+  display: none;
+}
+
+/* for small screen  */
+@media screen and (max-width: 50rem) {
+  .app__sidebar {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80vw;
+    height: 100vh;
+    z-index: 10000000000;
+  }
+
+  .position-absolute {
+    top: 1rem;
+    right: -4rem;
+    background-color: var(--dark-black);
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .position-absolute:hover {
+    box-shadow: 0 0 3px var(--grey);
+  }
 }
