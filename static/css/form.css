@@ -9,7 +9,6 @@
   display: none;
 }
 
-
 body.add-channel .new-channel {
   display: flex;
   justify-content: center;
@@ -29,4 +28,10 @@ body.add-channel .new-channel {
   min-width: 25rem;
   background-color: var(--dark-black);
   z-index: 100001;
+}
+
+@media screen and (max-width:31.25rem) {
+  .channel-form-holder {
+    min-width: 18.75rem;
+  }
 }

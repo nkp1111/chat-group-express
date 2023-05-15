@@ -58,6 +58,7 @@
 .card-header .btn {
   padding: 0.3rem 2rem;
   margin-left: 1rem;
+  white-space: nowrap;
 }
 
 .card-header .btn:hover {
@@ -146,6 +147,10 @@
   .profile-info .card {
     width: 95%;
   }
+
+  .profile-edit {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width:34.375rem) {
@@ -157,5 +162,9 @@
 
   .card-header {
     padding-top: 1.25rem;
+  }
+
+  .card-header .btn {
+    padding: 0.3rem 1rem;
   }
 }

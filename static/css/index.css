@@ -100,3 +100,15 @@ textarea,
 i {
   color: var(--white);
 }
+
+@media screen and (max-width:700px) {
+  .card-black {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  body {
+    overflow: auto;
+  }
+}
