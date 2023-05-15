@@ -67,8 +67,6 @@ app.use("/", (req, res, next) => {
     jwt.verify(token, jwtSecret, (err, user) => {
       if (!err) {
         req.user = user;
-      } else {
-        console.log(err)
       }
     });
   }
@@ -114,6 +112,10 @@ app.get("/channel/add", async (req, res) => {
   // add new channel to list
   try {
     const { token } = req.user
+    if (!token) {
+      res.redirect("/")
+      return
+    }
     const { name, description } = req.query
 
     await Channel.create({
@@ -142,6 +144,10 @@ app.get("/channel/:channelName", async (req, res) => {
 
   try {
     const { token } = req.user
+    if (!token) {
+      res.redirect("/")
+      return
+    }
     if (allChannelNames.includes(channelName)) {
       allUsers[token].currentChannel = channelName
       await User.updateOne({ username: token }, { lastVisitedChannel: channelName })
@@ -180,7 +186,7 @@ io.on("connection", function (socket) {
     channelToUpdate.messages.push(newMessage)
     const allMembers = channelToUpdate.members.map(m => m.name)
     if (!allMembers.includes(username)) {
-      channelToUpdate.members.push({ username, image: userImage })
+      channelToUpdate.members.push({ name: username, image: userImage })
     }
     await channelToUpdate.save()
 
