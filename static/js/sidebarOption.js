@@ -23,3 +23,9 @@ if (closeBtn) {
     closeBtn.style.display = "none"
   })
 }
+
+document.addEventListener("resize", (e) => {
+  if (window.innerWidth > 799) {
+    closeBtn.style.display = "none"
+  }
+})

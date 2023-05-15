@@ -1,12 +1,18 @@
-# Basic Authentication
+# Group Chat Express
 
 - Basic Authentication allows to register new user, login user and logout user.
 - Uses jsonwebtoken for authentication.
+- Allow User to update their profile info.
+- Allow user to make new channel.
+- Send messages to that channel.
+- View all messages sent into the channel.
 
 ## Links
 
-- [Code](https://github.com/nkp1111/basic-authentication)
-- [Live App](https://basic-auth-livid.vercel.app/)
+- [Code](https://github.com/nkp1111/chat-group-express)
+- [Live App](https://chat-group-express.vercel.app/)
+
+- ![screenshot](./static/images/Screenshot%202023-05-15%20134827.png)
 
 ## What i use
 
@@ -17,6 +23,8 @@
 - jsonwebtoken
 - ejs
 - dotenv
+- cloudinary
+- socket.io
 
 ## How To Use
 
@@ -24,7 +32,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/nkp1111/basic-authentication.git
+$ git clone https://github.com/nkp1111/chat-group-express.git
 
 # Install dependencies
 $ npm install

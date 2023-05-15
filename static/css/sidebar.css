@@ -147,8 +147,16 @@
   margin-bottom: 1rem;
 }
 
-.app__sidebar .position-absolute {
-  display: none;
+
+
+@media screen and (min-width: 50rem) {
+  .app__sidebar {
+    position: static;
+  }
+
+  .app__sidebar .position-absolute {
+    display: none;
+  }
 }
 
 /* for small screen  */
@@ -174,5 +182,11 @@
 
   .position-absolute:hover {
     box-shadow: 0 0 3px var(--grey);
+  }
+}
+
+@media screen and (max-width:23.125rem) {
+  .position-absolute {
+    right: -2rem;
   }
 }
