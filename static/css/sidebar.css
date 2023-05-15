@@ -21,6 +21,10 @@
   align-items: center;
 }
 
+.sidebar__channels {
+  border-bottom: 2px solid var(--dark-black2);
+}
+
 .sidebar__profile img {
   width: 2rem;
   height: 2rem;

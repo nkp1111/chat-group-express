@@ -72,6 +72,7 @@ body {
   font-family: var(--font), sans-serif;
   background: var(--black);
   color: var(--white);
+  overflow: hidden;
 }
 
 .card-black {
@@ -99,5 +100,3 @@ textarea,
 i {
   color: var(--white);
 }
-
-body.add-channel {}

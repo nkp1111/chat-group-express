@@ -119,7 +119,7 @@ app.get("/channel/add", async (req, res) => {
     const { name, description } = req.query
 
     await Channel.create({
-      name,
+      name: name.toUpperCase(),
       description,
       members: [
         {
@@ -180,7 +180,8 @@ io.on("connection", function (socket) {
       writer: {
         username,
         userImage,
-      }
+      },
+      date: new Date(),
     })
     const channelToUpdate = await Channel.findOne({ name: channel })
     channelToUpdate.messages.push(newMessage)

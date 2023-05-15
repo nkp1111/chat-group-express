@@ -12,7 +12,7 @@
     </div>
     <!-- username  -->
     <div>
-      <%= (user?.name && user.name[0].toUpperCase() + user.name.slice(1,)) || user?.username || "None" %>
+      <%= (user?.name && user.name[0].toUpperCase() + user.name.slice(1,10)) + "..." || user?.username.slice(0,10) + "..." || "None" %>
     </div>
 
     <ul class="navbar-nav">

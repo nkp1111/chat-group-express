@@ -1,7 +1,7 @@
 <div class="main__message-box d-flex flex-column">
   <div class="channel-name d-flex justify-content-between align-items-center">
     <span><%= channelInfo.name %></span>
-    <span class="ms-auto d-inline-block">Chatting Users: <span class="active-user-count">0</span></span>
+    <span class="ms-auto d-inline-block">Users Online: <span class="active-user-count">0</span></span>
   </div>
   <div class="message-holder">
     <% for( let message of channelInfo?.messages ) { %>
@@ -12,7 +12,14 @@
       <div class="latter">
         <div class="card-head">
           <strong><%= message.writer.username %></strong>
-          <span><%= message.date %></span>
+          <% if (Math.abs(new Date() - message.date) < 1000 * 60 * 60 * 24) { %>
+           <span>today at </span>
+          <% } else if (Math.abs(new Date() - message.date) < 2 * 1000 * 60 * 60 * 24) { %>
+           <span>yesterday at </span>
+          <% } else {%>
+           <span><%=Math.ceil(Math.abs(new Date() - message.date) / 1000 * 60 * 60 * 24) %> days ago at</span>
+          <% } %>
+          <span><%= message.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %></span>
         </div>
         <div class="card-body">
           <p><%= message.message %></p>

@@ -1,0 +1,83 @@
+/* chat box  */
+
+.main-content {
+  height: 100vh;
+  overflow: auto;
+  flex: 1;
+}
+
+.main__message-box {
+  height: 100%;
+}
+
+.main__message-box .channel-name {
+  height: 8vh;
+}
+
+.main__message-box .channel-message-add {
+  height: 15vh;
+}
+
+.main__message-box .channel-name {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 1rem 3rem;
+  border-bottom: 2px solid var(--dark-black2);
+}
+
+.main__message-box .message-holder {
+  padding: 1rem 3rem;
+  margin-top: 3rem;
+  flex: 1;
+  overflow: auto;
+}
+
+/* message box  */
+.message-holder .card {
+  padding: 0.5rem 0;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.message-holder img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+
+  margin-right: 1rem;
+}
+
+.message-holder .card .latter {
+  margin-left: 2rem;
+}
+
+.message-holder .card-head {
+  color: var(--grey);
+  margin-bottom: 0.5rem;
+}
+
+.message-holder .card-head strong {
+  margin-right: 2rem;
+}
+
+.message-holder .card-body {
+  padding: 0;
+}
+
+.channel-message-add {
+  padding: 1rem 3rem;
+}
+
+.channel-message-add form {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.channel-message-add form input {
+  flex: 1;
+  border: none;
+  padding: 0.5rem 1rem;
+}
